@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('canchas', function (Blueprint $table) {
             $table->id();
-            $table->string('nombre')->nullable();
-            $table->bigInteger('telefono')->nullable();
-            $table->string('email')->unique();
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('nombre_cancha');
+            $table->bigInteger('local_id');
+            $table->foreign('local_id')->references('id')->on('locales')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('canchas');
     }
 };
