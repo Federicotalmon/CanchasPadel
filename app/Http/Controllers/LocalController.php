@@ -48,6 +48,7 @@ class LocalController extends Controller
     public function show()
     {
         $locales = Local::all();
+        //H
         return view ('locales.locales', ['locales' => $locales]);
         //return view ('pacientes.createPaciente',['obras' => $obras]);
     }
