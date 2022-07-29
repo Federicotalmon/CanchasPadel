@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jugador;
-use App\Http\Requests\StoreJugadorRequest;
-use App\Http\Requests\UpdateJugadorRequest;
+use Illuminate\Http\Request;
 
-class JugadorController extends Controller
+class UsuariosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +29,10 @@ class JugadorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreJugadorRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreJugadorRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -42,10 +40,10 @@ class JugadorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Jugador  $jugador
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Jugador $jugador)
+    public function show($id)
     {
         //
     }
@@ -53,10 +51,10 @@ class JugadorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Jugador  $jugador
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Jugador $jugador)
+    public function edit($id)
     {
         //
     }
@@ -64,11 +62,11 @@ class JugadorController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateJugadorRequest  $request
-     * @param  \App\Models\Jugador  $jugador
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateJugadorRequest $request, Jugador $jugador)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,10 +74,10 @@ class JugadorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Jugador  $jugador
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jugador $jugador)
+    public function destroy($id)
     {
         //
     }

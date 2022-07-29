@@ -9,13 +9,12 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('registerduenio') }}">
             @csrf
 
             <!-- Name -->
             <div>
                 <x-label for="nombre" :value="__('Nombre')" />
-
                 <x-input id="nombre" class="block mt-1 w-full" type="text" name="nombre" :value="old('nombre')" required autofocus />
             </div>
 
@@ -43,23 +42,34 @@
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
-
+                <x-label for="password" :value="__('Contraseña')" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
             </div>
 
             <!-- Confirm Password -->
             <div class="mt-4">
-                <x-label for="password_confirmation" :value="__('Confirm Password')" />
+                <x-label for="password_confirmation" :value="__('Confirmar contraseña')" />
 
                 <x-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required />
+            
+            <!-- Name -->
+            <div>
+                <x-label for="nombre_local" :value="__('Nombre del Local')" />
+                <x-input id="nombre_local" class="block mt-1 w-full" type="text" name="nombre_local" :value="old('nombre_local')" required  />
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Ya estas registrado?') }}
-                </a>
+            <!-- Telefono -->
+            <div class="mt-4">
+                <x-label for="telefono_local" :value="__('Telefono del local')" />
+                <x-input id="telefono_local" class="block mt-1 w-full" type="number" name="telefono_local" :value="old('telefono_local')" required />
+            </div>
 
+            <!-- Direccion -->
+            <div class="mt-4">
+                <x-label for="direccion" :value="__('Direccion')" />
+
+                <x-input id="direccion" class="block mt-1 w-full" type="text" name="direccion" :value="old('direccion')" required />
+            </div>
                 <x-button class="ml-4">
                     {{ __('Registrar') }}
                 </x-button>

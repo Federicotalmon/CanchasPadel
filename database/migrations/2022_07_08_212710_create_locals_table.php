@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('direccion');
             $table->string('nombre');
             $table->binary('imagen');
+            $table->bigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

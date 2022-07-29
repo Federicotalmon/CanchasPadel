@@ -15,7 +15,6 @@ class LocalController extends Controller
      */
     public function index()
     {
-        
     }
 
     /**
@@ -25,7 +24,7 @@ class LocalController extends Controller
      */
     public function create()
     {
-        //
+        return view('locales.crear_local');
     }
 
     /**
@@ -36,7 +35,14 @@ class LocalController extends Controller
      */
     public function store(StoreLocalRequest $request)
     {
-        //
+        $local = new Local();
+        $local->telefono = $request->telefono;
+        $local->direccion = $request->direccion;
+        $local->nombre = $request->nombre;
+        $img = file_get_contents("https://scontent.fcnq2-2.fna.fbcdn.net/v/t1.6435-9/134130211_261275285674172_7525319496645181994_n.jpg?stp=cp0_dst-jpg_e15_fr_q65&_nc_cat=111&ccb=1-7&_nc_sid=dd9801&_nc_ohc=x82apIDJxpkAX9eSWaq&_nc_ht=scontent.fcnq2-2.fna&oh=00_AT8vUN3HCOcEROGFqWVdqmxpxTNiDUvACbOYdTV-PlMR4Q&oe=62F4BAB6");
+        $local->imagen = base64_encode($img);
+        $local->save();
+        return redirect()->back()->with('message', 'Local creado correctamente!');
     }
 
     /**
@@ -48,9 +54,8 @@ class LocalController extends Controller
     public function show()
     {
         $locales = Local::all();
-        //H
-        return view ('locales.locales', ['locales' => $locales]);
-        //return view ('pacientes.createPaciente',['obras' => $obras]);
+
+        return view('locales.locales', ['locales' => $locales]);
     }
 
     /**
@@ -82,8 +87,10 @@ class LocalController extends Controller
      * @param  \App\Models\Local  $local
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Local $local)
+    public function destroy($id)
     {
-        //
+        $local = Local::findOrFail($id);
+        $local->delete();
+        return redirect()->back()->with('message', 'Local eliminado correctamente!');
     }
 }

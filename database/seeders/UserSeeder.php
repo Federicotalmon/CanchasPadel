@@ -23,6 +23,7 @@ class UserSeeder extends Seeder
         $user->username = "Ftalmon";
         $user->password = bcrypt('password');
         $user->save();
+        $user->assignRole('admin');
 
         $user = new User();
         $user->nombre = "Matias Talmon";
@@ -31,6 +32,33 @@ class UserSeeder extends Seeder
         $user->username = "Mtalmon";
         $user->password = bcrypt('password');
         $user->save();
+        $user->assignRole('jugador');
 
+        $user = new User();
+        $user->nombre = "Pandu Segretin";
+        $user->telefono = 3482655307;
+        $user->email = "pandu@gmail.com";
+        $user->username = "Pandu";
+        $user->password = bcrypt('password');
+        $user->save();
+        $user->assignRole('jugador');
+
+        $user = new User();
+        $user->nombre = "Camila Gomez";
+        $user->telefono = 3482503189;
+        $user->email = "camilagomez@gmail.com";
+        $user->username = "Cgomez";
+        $user->password = bcrypt('password');
+        $user->save();
+        $user->assignRole('duenio');
+
+        $user = new User();
+        $user->nombre = "Cecilia nievas";
+        $user->telefono = 3482655099;
+        $user->email = "cecilianievas@gmail.com";
+        $user->username = "Cnievas";
+        $user->password = bcrypt('password');
+        $user->save();
+        $user->assignRole('duenio');
     }
 }

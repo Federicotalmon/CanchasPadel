@@ -9,8 +9,9 @@ class Turno extends Model
 {
     protected $table = 'turnos';
     use HasFactory;
+    protected $fillable = ['estado_id','user_id'];
 
-    public function canchas()
+    public function cancha()
     {
         return $this->belongsTo(Cancha::class);
     }
@@ -20,7 +21,7 @@ class Turno extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function estados()
+    public function estado()
     {
         return $this->belongsTo(Estado::class);
     }

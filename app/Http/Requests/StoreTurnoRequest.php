@@ -13,7 +13,7 @@ class StoreTurnoRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,15 @@ class StoreTurnoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'fecha' => 'required',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'fecha.required' => 'Error. Debes poner una fecha'
+        ];
+    }
+
 }

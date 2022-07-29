@@ -53,48 +53,5 @@ class CanchaSeeder extends Seeder
         $cancha->local_id = $local->id;
         $cancha->save();
 
-        $local = Local::find(3);
-        $cancha = new Cancha();
-        $cancha->nombre_cancha = "Cancha 1";
-        $cancha->local_id = $local->id;
-        $cancha->save();
-
-        $cancha = new Cancha();
-        $cancha->nombre_cancha = "Cancha 2";
-        $cancha->local_id = $local->id;
-        $cancha->save();
-
-        $cancha = new Cancha();
-        $cancha->nombre_cancha = "Cancha 3";
-        $cancha->local_id = $local->id;
-        $cancha->save();
-
-        $cancha = new Cancha();
-        $cancha->nombre_cancha = "Cancha 4";
-        $cancha->local_id = $local->id;
-        $cancha->save();
-
-        $local = Local::find(4);
-        $cancha = new Cancha();
-        $cancha->nombre_cancha = "Cancha blindex adelante";
-        $cancha->local_id = $local->id;
-        $cancha->save();
-
-        $cancha = new Cancha();
-        $cancha->nombre_cancha = "Cancha blindex atras";
-        $cancha->local_id = $local->id;
-        $cancha->save();
-
-        $local = Local::find(5);
-        $cancha = new Cancha();
-        $cancha->nombre_cancha = "Cancha unica";
-        $cancha->local_id = $local->id;
-        $cancha->save();
-
-
-
-
-
-
-    }
+            }
 }

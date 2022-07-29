@@ -13,7 +13,7 @@ class StoreLocalRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,19 @@ class StoreLocalRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => 'required',
+            'telefono' => 'required',
+            'direccion' => 'required'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'nombre.required' => 'Error,debes ingresar un nombre.',
+            'telefono.required' => 'Error,debes ingresar un telefono.',
+            'direccion.required' => 'Error,debes ingresar un direccion.',
+        ];
+    }
+
 }

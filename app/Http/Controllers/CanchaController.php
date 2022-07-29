@@ -24,9 +24,9 @@ class CanchaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        return view ('canchas.crear_cancha', ['id' => $id]);
     }
 
     /**
@@ -35,9 +35,14 @@ class CanchaController extends Controller
      * @param  \App\Http\Requests\StoreCanchaRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCanchaRequest $request)
+    public function storeCancha(StoreCanchaRequest $request, $id)
     {
-        //
+        $local = Local::findOrFail($id);
+        $cancha = new Cancha();
+        $cancha->nombre_cancha = $request->nombre_cancha;
+        $cancha->local_id = $local->id;
+        $cancha->save();
+        return redirect()->back()->with('message', 'Cancha creada correctamente!');
     }
 
     /**
@@ -50,7 +55,7 @@ class CanchaController extends Controller
     {   
         $local = Local::findOrFail($id);
         $canchas = $local->canchas;
-        return view ('canchas.canchas', ['canchas' => $canchas]);
+        return view ('canchas.canchas', ['canchas' => $canchas ,'local_id' => $id ]);
     }
 
     /**
@@ -82,8 +87,10 @@ class CanchaController extends Controller
      * @param  \App\Models\Cancha  $cancha
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cancha $cancha)
+    public function destroy($id)
     {
-        //
+        $cancha = Cancha::findOrFail($id);
+        $cancha->delete();
+        return redirect()->back()->with('message', 'Cancha eliminada correctamente!');        
     }
 }

@@ -18,8 +18,12 @@
                     <x-nav-link :href="route('show_locales')" :active="request()->routeIs('show_locales')">
                         {{ __('Locales') }}
                     </x-nav-link>
+                    @role('duenio')
                     
-
+                    <x-nav-link :href="route ('administrar_turnos', ['id' => Auth::user()->id])" :active="request()->routeIs('administrar_turnos')">
+                        {{ __('Administrar turnos') }}
+                    </x-nav-link>
+                    @endrole
                 </div>
             </div>
 

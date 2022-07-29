@@ -13,7 +13,7 @@ class StoreCanchaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,14 @@ class StoreCanchaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre_cancha' => 'required'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'nombre_cancha.required' => 'Error,debes ingresar un nombre.',
         ];
     }
 }

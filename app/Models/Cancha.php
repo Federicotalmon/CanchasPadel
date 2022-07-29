@@ -15,4 +15,9 @@ class Cancha extends Model
         return $this->hasMany(Turno::class);
     }
 
+    public function local()
+    {
+        return $this->belongsTo(Local::class);
+    }
+
 }

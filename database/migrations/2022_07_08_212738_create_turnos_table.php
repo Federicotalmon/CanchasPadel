@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->dateTime('fecha');
             $table->bigInteger('cancha_id');
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->nullable();
             $table->bigInteger('estado_id');
             $table->foreign('estado_id')->references('id')->on('turnos')->onDelete('cascade');
             $table->foreign('cancha_id')->references('id')->on('canchas')->onDelete('cascade');
